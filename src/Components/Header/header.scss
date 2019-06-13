@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.header{
+    align-items: center;
+    background-color: $color-white;
+    color: $color-blue;
+    box-shadow: 0 15px 40px -21px $color-grey;
+    height: 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

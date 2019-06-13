@@ -1,0 +1,52 @@
+@import "./variables.scss";
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: $color-white;
+}
+ * {
+     box-sizing: border-box;
+ }
+
+ #root {
+     height: 100vh;
+ }
+
+
+ .container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.container_flex-direction_row {
+    flex-direction: row;
+}
+
+.list-container {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.logo {
+    font-size: $font-size-large;
+    font-weight: $font-weight-heaviest;
+    border-bottom: 2px solid $color-red;
+}
+
+.btn {
+    padding: 10px 20px;
+    color: $color-white;
+    background: $color-blue;
+    border: 0px;
+    font-weight: font-weight-heaviest;
+    outline: none;
+    cursor: pointer;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: $color-blue;
+}
