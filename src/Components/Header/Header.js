@@ -4,7 +4,7 @@ import './header.scss'
 const Header = () => {
     return (
         <div className="container header">
-            <div className="logo">Peninsula Diagnostic Imaging</div>
+            <div className="logo">PENINSULA DIAGNOSTIC IMAGING</div>
         </div>
     );
 }

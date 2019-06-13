@@ -13,7 +13,7 @@ class AppointmentForm extends React.Component {
         console.log(this.props);
         return (
             <Container maxWidth="sm">
-                <div>Request an appointment</div>
+                <div className="form-title">REQUEST AN APPOINTMENT</div>
                 <Container>
                     <form>
                         <div>
@@ -21,6 +21,7 @@ class AppointmentForm extends React.Component {
                                 id="location"
                                 label="Clinic Location"
                                 margin="normal"
+                                fullWidth={true}
                                 defaultValue={this.props.clinicLocation}
                                 onChange={(e) => { this.props.handleAppointmentInfo(e, "clinicLocation")}}
                                 InputLabelProps={{
@@ -32,6 +33,7 @@ class AppointmentForm extends React.Component {
                             <Select
                                 name="exam"
                                 value={this.props.exam}
+                                fullWidth={true}
                                 inputProps={{
                                     name: 'age',
                                     id: 'age-simple',
@@ -47,6 +49,7 @@ class AppointmentForm extends React.Component {
                             id="date"
                             label="Date"
                             type="date"
+                            fullWidth={true}
                             value={this.props.appointmentDate}
                             margin="normal"
                             InputLabelProps={{
@@ -59,6 +62,7 @@ class AppointmentForm extends React.Component {
                                 id="time"
                                 label="Time"
                                 type="time"
+                                fullWidth={true}
                                 margin="normal"
                                 value={this.props.time}
                                 InputLabelProps={{
@@ -72,6 +76,7 @@ class AppointmentForm extends React.Component {
                                 id="notes"
                                 label="Notes"
                                 rowsMax="4"
+                                fullWidth={true}
                                 value={this.props.notes}
                                 margin="normal"
                                 InputLabelProps={{
@@ -81,6 +86,7 @@ class AppointmentForm extends React.Component {
                             />
                         </div>
                         <div>
+                            <div className="image-selector-label">Do you have any doctors order?</div>
                             <ImageUpload setImage={this.props.setImage} imageName="doctorsOrderImage"></ImageUpload>
                         </div>
                         <div>

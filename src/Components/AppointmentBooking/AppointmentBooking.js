@@ -1,6 +1,7 @@
 import React from 'react';
 import AppointmentForm from '../AppointmentForm/AppointmentForm';
 import PatientInfoForm from '../PatientInfoForm/PatientInfoForm';
+import './appointmentBooking.scss';
 import * as moment from 'moment';
 import { Route } from 'react-router-dom';
 
@@ -62,7 +63,6 @@ class AppointmentBooking extends React.Component {
         setTimeout(() => {
             console.log(this.state);
         }, 500)
-        
     }
 
     render() {

@@ -1,0 +1,16 @@
+@import "../../styles/variables.scss";
+
+.image-selectors {
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+.selected-image {
+    padding: 10px;
+
+    img {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
