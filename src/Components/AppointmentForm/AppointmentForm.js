@@ -9,6 +9,29 @@ import { Link } from "react-router-dom";
 
 class AppointmentForm extends React.Component {
 
+    componentDidMount() {
+        if (navigator.geolocation) {
+            let coords = navigator.geolocation.getCurrentPosition(this.getLocation);
+            console.log(coords);
+          } else {
+            console.log("error");
+          }
+    }
+
+    getLocation = (position) => {
+        setTimeout(() => {
+            if(window.google.maps.GeoCoder) {
+                let geoCoder = new window.google.maps.GeoCoder();
+                let latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)}
+                geoCoder.geocode({'location': latlng}, (results, status) => {
+                    if(status=='OK'){
+                        console.log(results);
+                    }
+                })
+            }
+        }, 1000)
+    }
+
     render() {
         console.log(this.props);
         return (
@@ -16,7 +39,7 @@ class AppointmentForm extends React.Component {
                 <div className="form-title">REQUEST AN APPOINTMENT</div>
                 <Container>
                     <form>
-                        <div>
+                        <div className="input-container">
                             <TextField
                                 id="location"
                                 label="Clinic Location"
@@ -29,7 +52,7 @@ class AppointmentForm extends React.Component {
                                 }}
                             />
                         </div>
-                        <div>
+                        <div className="input-container">
                             <Select
                                 name="exam"
                                 value={this.props.exam}
@@ -45,19 +68,21 @@ class AppointmentForm extends React.Component {
                                 <MenuItem value="X-Ray">X-Ray</MenuItem>
                             </Select>
                         </div>
-                        <TextField
-                            id="date"
-                            label="Date"
-                            type="date"
-                            fullWidth={true}
-                            value={this.props.appointmentDate}
-                            margin="normal"
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            onChange={(e) => { this.props.handleAppointmentInfo(e, "appointmentDate")}}
-                        />
-                        <div>
+                        <div className="input-container">
+                            <TextField
+                                id="date"
+                                label="Date"
+                                type="date"
+                                fullWidth={true}
+                                value={this.props.appointmentDate}
+                                margin="normal"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                onChange={(e) => { this.props.handleAppointmentInfo(e, "appointmentDate") }}
+                            />
+                        </div>
+                        <div className="input-container">
                             <TextField
                                 id="time"
                                 label="Time"
@@ -71,7 +96,7 @@ class AppointmentForm extends React.Component {
                                 onChange={(e) => { this.props.handleAppointmentInfo(e, "appointmentTime")}}
                             />
                         </div>
-                        <div>
+                        <div className="input-container">
                             <TextField
                                 id="notes"
                                 label="Notes"
@@ -85,11 +110,11 @@ class AppointmentForm extends React.Component {
                                 onChange={(e) => { this.props.handleAppointmentInfo(e, "notes")}}
                             />
                         </div>
-                        <div>
+                        <div className="input-container">
                             <div className="image-selector-label">Do you have any doctors order?</div>
-                            <ImageUpload setImage={this.props.setImage} imageName="doctorsOrderImage"></ImageUpload>
+                            <ImageUpload setImage={this.props.setImage} imageName="doctorsOrderImage" getDataFromImage={false}></ImageUpload>
                         </div>
-                        <div>
+                        <div className="btn-container">
                             <Link to="/appointmentBooking/patientInfo">
                                 <Button variant="contained" color="primary">
                                     Next

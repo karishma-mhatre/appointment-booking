@@ -2,7 +2,7 @@ import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import { TesseractWorker } from 'tesseract.js';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import './image-upload.scss';
 
 const worker = new TesseractWorker();
@@ -28,7 +28,11 @@ class ImageUpload extends React.Component {
             let file = imageFiles[i];
 
             reader.onloadend = () => {
-                this.setState({ uploadedImage: reader.result }, () => {this.doOCR()});
+                if(this.props.getDataFromImage) {
+                    this.setState({ uploadedImage: reader.result }, () => {this.doOCR()});
+                }else {
+                    this.setState({ uploadedImage: reader.result });
+                }
             }
 
             reader.readAsDataURL(file);
@@ -61,7 +65,7 @@ class ImageUpload extends React.Component {
     render() {
         return (
             <>
-                <div className="container image-selectors">
+                <div className="container image-selector">
                     <div>
                         <input
                             accept="image/*"
@@ -73,8 +77,8 @@ class ImageUpload extends React.Component {
                             value={this.state.imageName}
                         />
                         <label htmlFor="file">
-                            <Button variant="outlined" component="span">
-                                <i class="fa fa-camera"></i>
+                            <Button variant="outlined" component="span" className="image-selector-btn">
+                                <i className="fa fa-camera"></i>
                             </Button>
                         </label>
                     </div>
@@ -88,8 +92,8 @@ class ImageUpload extends React.Component {
                             value={this.state.imageName}
                         />
                         <label htmlFor="file">
-                            <Button variant="outlined" component="span">
-                                <i class="fa fa-folder"></i>
+                            <Button variant="outlined" component="span" className="image-selector-btn">
+                                <i className="fa fa-folder"></i>
                             </Button>
                         </label>
                     </div>
@@ -98,8 +102,17 @@ class ImageUpload extends React.Component {
                     this.state.uploadedImage &&
                     <div className="selected-image">
                         <img src={this.state.uploadedImage} alt="imagerrr"></img>
+
                     </div>
                 }
+                {
+                    this.state.isLoading &&
+                    <div className="ocr-progress">
+                        <span>Getting data from image...</span>
+                        <CircularProgress></CircularProgress>
+                    </div>
+                }
+
                 {
                     this.state.uploadedImage &&
                     <Button onClick={(e) => { this.removeImage(e) }}>

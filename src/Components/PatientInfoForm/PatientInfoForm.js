@@ -13,11 +13,11 @@ class AppointmentBooking extends React.Component {
             <Container maxWidth="sm">
                 <div className="form-title">FILL IN PATIENT DETAILS</div>
                 <form>
-                    <div>
+                    <div className="input-container">
                         <div className="image-selector-label"> Send us an ID</div>
-                        <ImageUpload setImage={this.props.setImage} imageName="patientIdImage"></ImageUpload>
+                        <ImageUpload setImage={this.props.setImage} imageName="patientIdImage" getDataFromImage={true}></ImageUpload>
                     </div>
-                    <div>
+                    <div className="input-container">
                         <TextField
                             defaultValue={this.props.firstName}
                             id="standard-name"
@@ -29,6 +29,8 @@ class AppointmentBooking extends React.Component {
                             }}
                             onChange={(e) => { this.props.handlePatientInfo(e, "firstName") }}
                         />
+                    </div>
+                    <div className="input-container">
                         <TextField
                             defaultValue={this.props.lastName}
                             id="standard-name"
@@ -41,21 +43,21 @@ class AppointmentBooking extends React.Component {
                             onChange={(e) => { this.props.handlePatientInfo(e, "lastName") }}
                         />
                     </div>
-                    <div>
-                    <TextField
-                        defaultValue={this.props.dateOfBirth}
-                        id="standard-name"
-                        label="Date of birth"
-                        type="date"
-                        fullWidth={true}
-                        margin="normal"
-                        InputLabelProps={{
-                            shrink: true,
-                          }}
-                        onChange={(e) => { this.props.handlePatientInfo(e, "dateOfBirth")}}
-                    />
+                    <div className="input-container">
+                        <TextField
+                            defaultValue={this.props.dateOfBirth}
+                            id="standard-name"
+                            label="Date of birth"
+                            type="date"
+                            fullWidth={true}
+                            margin="normal"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            onChange={(e) => { this.props.handlePatientInfo(e, "dateOfBirth") }}
+                        />
                     </div>
-                    <div>
+                    <div className="btn-container">
                         <Button variant="contained" color="primary">
                             Request Appointment
                         </Button>
