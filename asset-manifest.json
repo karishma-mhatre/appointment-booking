@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/appointment-booking/static/css/main.bd614e41.chunk.css",
+    "main.js": "/appointment-booking/static/js/main.3fbdcbd9.chunk.js",
+    "main.js.map": "/appointment-booking/static/js/main.3fbdcbd9.chunk.js.map",
+    "runtime~main.js": "/appointment-booking/static/js/runtime~main.6ed5862f.js",
+    "runtime~main.js.map": "/appointment-booking/static/js/runtime~main.6ed5862f.js.map",
+    "static/js/2.f7e0830a.chunk.js": "/appointment-booking/static/js/2.f7e0830a.chunk.js",
+    "static/js/2.f7e0830a.chunk.js.map": "/appointment-booking/static/js/2.f7e0830a.chunk.js.map",
+    "index.html": "/appointment-booking/index.html",
+    "precache-manifest.0f2edafe3c20aa98a1b475c3e95ad655.js": "/appointment-booking/precache-manifest.0f2edafe3c20aa98a1b475c3e95ad655.js",
+    "service-worker.js": "/appointment-booking/service-worker.js",
+    "static/css/main.bd614e41.chunk.css.map": "/appointment-booking/static/css/main.bd614e41.chunk.css.map"
+  }
+}
