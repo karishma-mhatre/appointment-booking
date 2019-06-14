@@ -62,18 +62,28 @@ class AppointmentBooking extends React.Component {
         this.setState({patientInfo})
     }
 
+    setAppointment = () => {
+        console.log("send request to backend along with data")
+    }
+
     render() {
         
         return (
             <div className="container">
                 <Route exact path="/appointment-booking/" render={
                     (props) => (
-                        <AppointmentForm {...props} {...this.state.appointmentInfo} handleAppointmentInfo={this.handleAppointmentInfo} setImage={this.setImage} setLocation={this.setLocation}></AppointmentForm>
+                        <AppointmentForm {...props} {...this.state.appointmentInfo} 
+                        handleAppointmentInfo={this.handleAppointmentInfo} 
+                        setImage={this.setImage} 
+                        setLocation={this.setLocation}></AppointmentForm>
                     )
                 }/>
                 <Route exact path="/appointment-booking/patient-info" render={
                     (props) => (
-                        <PatientInfoForm {...props} {...this.state.patientInfo} handlePatientInfo={this.handlePatientInfo} setImage={this.setImage}></PatientInfoForm>
+                        <PatientInfoForm {...props} {...this.state.patientInfo} 
+                        handlePatientInfo={this.handlePatientInfo} 
+                        setImage={this.setImage}
+                        setAppointment={this.setAppointment}></PatientInfoForm>
                     )
                 }/>
             </div>

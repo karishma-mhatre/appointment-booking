@@ -17,6 +17,7 @@ class AppointmentBooking extends React.Component {
                     </div>
                     <div className="input-container">
                         <TextField
+                            required
                             defaultValue={this.props.firstName}
                             id="standard-name"
                             label="Firstname"
@@ -30,6 +31,7 @@ class AppointmentBooking extends React.Component {
                     </div>
                     <div className="input-container">
                         <TextField
+                            required
                             defaultValue={this.props.lastName}
                             id="standard-name"
                             label="Lastname"
@@ -43,6 +45,7 @@ class AppointmentBooking extends React.Component {
                     </div>
                     <div className="input-container">
                         <TextField
+                            required
                             defaultValue={this.props.dateOfBirth}
                             id="standard-name"
                             label="Date of birth"
@@ -56,7 +59,7 @@ class AppointmentBooking extends React.Component {
                         />
                     </div>
                     <div className="btn-container">
-                        <Button variant="contained" color="primary">
+                        <Button variant="contained" color="primary" onClick={(e) => {this.props.setAppointment(e)}}>
                             Request Appointment
                         </Button>
                     </div>

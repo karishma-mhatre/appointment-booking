@@ -37,6 +37,7 @@ class AppointmentForm extends React.Component {
                     <form>
                         <div className="input-container">
                             <TextField
+                                required
                                 id="location"
                                 label="Clinic Location"
                                 margin="normal"
@@ -50,6 +51,7 @@ class AppointmentForm extends React.Component {
                         </div>
                         <div className="input-container">
                             <Select
+                                required
                                 name="exam"
                                 value={this.props.exam}
                                 fullWidth={true}
@@ -66,6 +68,7 @@ class AppointmentForm extends React.Component {
                         </div>
                         <div className="input-container">
                             <TextField
+                                required
                                 id="date"
                                 label="Date"
                                 type="date"
@@ -80,6 +83,7 @@ class AppointmentForm extends React.Component {
                         </div>
                         <div className="input-container">
                             <TextField
+                                required
                                 id="time"
                                 label="Time"
                                 type="time"
@@ -94,6 +98,7 @@ class AppointmentForm extends React.Component {
                         </div>
                         <div className="input-container">
                             <TextField
+                                required
                                 id="notes"
                                 label="Notes"
                                 rowsMax="4"
