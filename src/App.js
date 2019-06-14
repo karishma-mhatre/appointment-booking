@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/Header/Header';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import './styles/common.scss';
 import AppointmentBooking from './Components/AppointmentBooking/AppointmentBooking';
 

@@ -38,6 +38,8 @@ class AppointmentBooking extends React.Component {
                     patientInfo[imageName] = image;
                     this.setState({patientInfo})
             break;
+            default: 
+            break;
         }
 
         setTimeout(() => {
@@ -69,12 +71,12 @@ class AppointmentBooking extends React.Component {
         
         return (
             <div className="container">
-                <Route exact path="/appointmentBooking/" render={
+                <Route exact path="/appointment-booking/" render={
                     (props) => (
                         <AppointmentForm {...props} {...this.state.appointmentInfo} handleAppointmentInfo={this.handleAppointmentInfo} setImage={this.setImage}></AppointmentForm>
                     )
                 }/>
-                <Route exact path="/appointmentBooking/patientInfo" render={
+                <Route exact path="/appointment-booking/patient-info" render={
                     (props) => (
                         <PatientInfoForm {...props} {...this.state.patientInfo} handlePatientInfo={this.handlePatientInfo} setImage={this.setImage}></PatientInfoForm>
                     )

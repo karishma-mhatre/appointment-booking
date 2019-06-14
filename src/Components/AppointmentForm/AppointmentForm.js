@@ -19,12 +19,14 @@ class AppointmentForm extends React.Component {
     }
 
     getLocation = (position) => {
+    //     fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/js?key=AIzaSyCLgyx7oL6e6fJcko9PGA6sxINR09wzQz8&callback=initMap")
+    //   .then(response => {console.log(response)})
         setTimeout(() => {
             if(window.google.maps.GeoCoder) {
                 let geoCoder = new window.google.maps.GeoCoder();
                 let latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)}
                 geoCoder.geocode({'location': latlng}, (results, status) => {
-                    if(status=='OK'){
+                    if(status === 'OK'){
                         console.log(results);
                     }
                 })
@@ -37,7 +39,6 @@ class AppointmentForm extends React.Component {
         return (
             <Container maxWidth="sm">
                 <div className="form-title">REQUEST AN APPOINTMENT</div>
-                <Container>
                     <form>
                         <div className="input-container">
                             <TextField
@@ -74,7 +75,7 @@ class AppointmentForm extends React.Component {
                                 label="Date"
                                 type="date"
                                 fullWidth={true}
-                                value={this.props.appointmentDate}
+                                defaultValue={this.props.appointmentDate}
                                 margin="normal"
                                 InputLabelProps={{
                                     shrink: true,
@@ -89,7 +90,7 @@ class AppointmentForm extends React.Component {
                                 type="time"
                                 fullWidth={true}
                                 margin="normal"
-                                value={this.props.time}
+                                defaultValue={this.props.time}
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
@@ -102,7 +103,7 @@ class AppointmentForm extends React.Component {
                                 label="Notes"
                                 rowsMax="4"
                                 fullWidth={true}
-                                value={this.props.notes}
+                                defaultValue={this.props.notes}
                                 margin="normal"
                                 InputLabelProps={{
                                     shrink: true,
@@ -115,14 +116,13 @@ class AppointmentForm extends React.Component {
                             <ImageUpload setImage={this.props.setImage} imageName="doctorsOrderImage" getDataFromImage={false}></ImageUpload>
                         </div>
                         <div className="btn-container">
-                            <Link to="/appointmentBooking/patientInfo">
+                            <Link to="/appointment-booking/patient-info">
                                 <Button variant="contained" color="primary">
                                     Next
                                 </Button>
                             </Link>
                         </div>
                     </form>
-                </Container>
             </Container>
         )
     }
