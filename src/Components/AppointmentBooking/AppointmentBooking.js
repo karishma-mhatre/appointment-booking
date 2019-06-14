@@ -41,10 +41,6 @@ class AppointmentBooking extends React.Component {
             default: 
             break;
         }
-
-        setTimeout(() => {
-            console.log("image",this.state);
-        }, 500)
     }
 
     handleAppointmentInfo = (e, name) => {
@@ -52,19 +48,18 @@ class AppointmentBooking extends React.Component {
         appointmentInfo[name] = e.target.value;
 
         this.setState({appointmentInfo})
-        setTimeout(() => {
-            console.log(this.state);
-        }, 500)
-        
+    }
+
+    setLocation = (location) => {
+        let patientInfo = {...this.state.patientInfo}
+        patientInfo["clinicLocation"] = location;
+        this.setState({patientInfo})
     }
 
     handlePatientInfo = (e, name) => {
         let patientInfo = {...this.state.patientInfo}
         patientInfo[name] = e.target.value;
         this.setState({patientInfo})
-        setTimeout(() => {
-            console.log(this.state);
-        }, 500)
     }
 
     render() {
@@ -73,7 +68,7 @@ class AppointmentBooking extends React.Component {
             <div className="container">
                 <Route exact path="/appointment-booking/" render={
                     (props) => (
-                        <AppointmentForm {...props} {...this.state.appointmentInfo} handleAppointmentInfo={this.handleAppointmentInfo} setImage={this.setImage}></AppointmentForm>
+                        <AppointmentForm {...props} {...this.state.appointmentInfo} handleAppointmentInfo={this.handleAppointmentInfo} setImage={this.setImage} setLocation={this.setLocation}></AppointmentForm>
                     )
                 }/>
                 <Route exact path="/appointment-booking/patient-info" render={

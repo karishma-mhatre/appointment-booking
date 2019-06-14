@@ -37,10 +37,6 @@ class ImageUpload extends React.Component {
 
             reader.readAsDataURL(file);
         }
-
-        setTimeout(() => {
-            console.log(this.state);
-        }, 500)
     }
 
     doOCR = () => {

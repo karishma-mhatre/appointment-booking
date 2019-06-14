@@ -12,20 +12,18 @@ class AppointmentForm extends React.Component {
     componentDidMount() {
         if (navigator.geolocation) {
             let coords = navigator.geolocation.getCurrentPosition(this.getLocation);
-            console.log(coords);
-          } else {
-            console.log("error");
           }
     }
 
     getLocation = (position) => {
+        //GeoLocation daily limit is 1 for non billing account. Hence call fails second time onwards.
         setTimeout(() => {
             if(window.google.maps.Geocoder) {
                 let geoCoder = new window.google.maps.Geocoder();
                 let latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)}
                 geoCoder.geocode({'location': latlng}, (results, status) => {
                     if(status === 'OK'){
-                        this.props.clinicLocation = results[3];
+                        this.props.setLocation(results[3]);
                     }
                 })
             }
@@ -33,7 +31,6 @@ class AppointmentForm extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <Container maxWidth="sm">
                 <div className="form-title">REQUEST AN APPOINTMENT</div>
