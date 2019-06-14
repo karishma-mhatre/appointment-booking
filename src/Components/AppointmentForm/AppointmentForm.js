@@ -25,7 +25,7 @@ class AppointmentForm extends React.Component {
                 let latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)}
                 geoCoder.geocode({'location': latlng}, (results, status) => {
                     if(status === 'OK'){
-                        console.log(results);
+                        this.props.clinicLocation = results[3];
                     }
                 })
             }
