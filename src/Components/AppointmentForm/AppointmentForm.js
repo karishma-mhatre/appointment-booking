@@ -19,11 +19,9 @@ class AppointmentForm extends React.Component {
     }
 
     getLocation = (position) => {
-    //     fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/js?key=AIzaSyCLgyx7oL6e6fJcko9PGA6sxINR09wzQz8&callback=initMap")
-    //   .then(response => {console.log(response)})
         setTimeout(() => {
-            if(window.google.maps.GeoCoder) {
-                let geoCoder = new window.google.maps.GeoCoder();
+            if(window.google.maps.Geocoder) {
+                let geoCoder = new window.google.maps.Geocoder();
                 let latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)}
                 geoCoder.geocode({'location': latlng}, (results, status) => {
                     if(status === 'OK'){
